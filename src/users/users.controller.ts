@@ -10,6 +10,7 @@ import {
   BadRequestException,
   NotFoundException,
 } from '@nestjs/common';
+import { ApiBearerAuth } from '@nestjs/swagger';
 import { AccessGuard } from './../auth/guards/at.guard';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
@@ -19,6 +20,7 @@ import { UsersService } from './users.service';
 export class UsersController {
   constructor(private readonly usersService: UsersService) {}
 
+  @ApiBearerAuth()
   @Post()
   @UseGuards(AccessGuard)
   async create(@Body() createUserDto: CreateUserDto) {
@@ -47,6 +49,7 @@ export class UsersController {
     return user;
   }
 
+  @ApiBearerAuth()
   @Patch(':id')
   @UseGuards(AccessGuard)
   async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
@@ -59,6 +62,7 @@ export class UsersController {
     return this.usersService.update(id, updateUserDto);
   }
 
+  @ApiBearerAuth()
   @Delete(':id')
   @UseGuards(AccessGuard)
   async remove(@Param('id') id: string) {
