@@ -10,6 +10,10 @@ export class UsersService {
     return this.usersRepository.createUser(createUserDto);
   }
 
+  findOneByFilter(filter: any) {
+    return this.usersRepository.findUserByFilter(filter);
+  }
+
   findAll() {
     return this.usersRepository.getUsersList();
   }
@@ -18,7 +22,7 @@ export class UsersService {
     return this.usersRepository.findUserById(id);
   }
 
-  update(id: string, @Body() updateUserDto: UpdateUserDto) {
+  async update(id: string, @Body() updateUserDto: UpdateUserDto) {
     return this.usersRepository.updateUser(id, updateUserDto);
   }
 

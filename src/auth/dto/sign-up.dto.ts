@@ -4,6 +4,7 @@ import { IsEmail, IsOptional, IsString, MinLength } from 'class-validator';
 export class SignUpDto {
   @ApiProperty({ default: 'someuser@gmai.com' })
   @IsEmail()
+  @IsString()
   email: string;
 
   @ApiProperty({ default: '12345678' })

@@ -5,9 +5,9 @@ import {
 } from '@nestjs/common';
 import { compare, hash } from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
-import { UsersRepository } from 'src/users/users.repository';
 import { User } from '@prisma/client';
-import { RedisService } from 'src/redis/redis.service';
+import { RedisService } from './../redis/redis.service';
+import { UsersRepository } from './../users/users.repository';
 import { Tokens } from './intefaces/tokens.inteface';
 import { SignUpDto } from './dto/sign-up.dto';
 import { SignInDto } from './dto/sign-in.dto';

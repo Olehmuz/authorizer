@@ -1,7 +1,7 @@
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
-import { GetCurrentUser } from 'src/common/decorators/get-user.decorator';
-import { RedisService } from 'src/redis/redis.service';
 import { ApiBearerAuth } from '@nestjs/swagger';
+import { RedisService } from './../redis/redis.service';
+import { GetCurrentUser } from './../common/decorators/get-user.decorator';
 import { AuthService } from './auth.service';
 import { SignInDto } from './dto/sign-in.dto';
 import { SignUpDto } from './dto/sign-up.dto';

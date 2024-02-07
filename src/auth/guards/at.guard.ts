@@ -6,7 +6,7 @@ import {
 } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
 import { Request } from 'express';
-import { RedisService } from 'src/redis/redis.service';
+import { RedisService } from './../../redis/redis.service';
 
 @Injectable()
 export class AccessGuard implements CanActivate {
